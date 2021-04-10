@@ -38,3 +38,19 @@ ON e.emp_no = de.emp_no
 JOIN departments d
 ON de.dept_no = d.dep_number
 WHERE d.dep_name ='Sales';
+
+-- Query employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+SELECT e.emp_no, e.last_name, e.first_name, d.dep_name
+FROM employees e
+JOIN dep_employees de
+ON e.emp_no = de.emp_no
+JOIN departments d
+ON de.dept_no = d.dep_number
+WHERE d.dep_name ='Sales' or d.dep_name ='Development';
+
+
+-- Query in descending order, list the frequency count of employee last names, i.e., how many employees share each last name. 
+SELECT e.last_name, count(last_name) as last_name_count
+FROM employees e
+GROUP BY last_name
+ORDER BY last_name_count desc;
