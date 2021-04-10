@@ -16,3 +16,11 @@ JOIN dep_managers m
 ON d.dep_number = m.dept_no
 JOIN employees e
 ON m.emp_no = e.emp_no;
+
+-- Query department of each employee with the following information: employee number, last name, first name, and department name.
+SELECT de.emp_no, e.last_name, e.first_name, d.dep_name
+FROM dep_employees de
+JOIN departments d
+ON de.dept_no = d.dep_number
+JOIN employees e
+ON de.emp_no = e.emp_no;
